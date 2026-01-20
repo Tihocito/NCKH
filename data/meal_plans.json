@@ -1,0 +1,286 @@
+{
+  "meal_plan_templates": {
+    "dương_hư": {
+      "name": "Thực đơn cho người dương hư",
+      "description": "Thực đơn ấm nóng, bổ dương khí",
+      "breakfast": [
+        {
+          "dish_id": 1,
+          "name": "Cháo gà gừng",
+          "reason": "Ấm bụng, tán hàn, bổ khí"
+        },
+        {
+          "dish_id": 9,
+          "name": "Trà gừng mật ong",
+          "reason": "Làm ấm cơ thể, tăng dương khí"
+        }
+      ],
+      "lunch": [
+        {
+          "dish_id": 4,
+          "name": "Thịt bò hầm thuốc bắc",
+          "reason": "Bổ khí huyết, ấm thận"
+        },
+        {
+          "dish_id": 5,
+          "name": "Súp bí đỏ",
+          "reason": "Bổ tỳ vị, dễ tiêu"
+        }
+      ],
+      "dinner": [
+        {
+          "dish_id": 8,
+          "name": "Cá chép hấp",
+          "reason": "Bổ tỳ, dễ tiêu, không gây lạnh"
+        },
+        {
+          "dish_id": 10,
+          "name": "Rau muống xào tỏi",
+          "reason": "Cân bằng với lượng vừa phải"
+        }
+      ],
+      "snacks": [
+        {
+          "dish_id": 7,
+          "name": "Chè đậu xanh",
+          "reason": "Có thể ăn ít, tránh ăn lạnh"
+        }
+      ],
+      "avoid": [2, 3, 6],
+      "tips": [
+        "Ăn thức ăn nóng ấm",
+        "Tránh đồ sống lạnh",
+        "Ăn thêm các loại hạt ấm như hạt dẻ, hồ đào"
+      ]
+    },
+    
+    "âm_hư": {
+      "name": "Thực đơn cho người âm hư",
+      "description": "Thực đơn mát, bổ âm dịch",
+      "breakfast": [
+        {
+          "dish_id": 5,
+          "name": "Súp bí đỏ",
+          "reason": "Bổ tỳ vị mà không nóng"
+        },
+        {
+          "dish_id": 3,
+          "name": "Nước đậu đen rang",
+          "reason": "Thanh nhiệt, bổ thận âm"
+        }
+      ],
+      "lunch": [
+        {
+          "dish_id": 6,
+          "name": "Gỏi cuốn tôm thịt",
+          "reason": "Thanh mát, bổ âm"
+        },
+        {
+          "dish_id": 2,
+          "name": "Canh mồng tơi nấu cua",
+          "reason": "Thanh nhiệt, nhuận tràng"
+        }
+      ],
+      "dinner": [
+        {
+          "dish_id": 12,
+          "name": "Súp miso",
+          "reason": "Tốt cho tiêu hóa, không nóng"
+        },
+        {
+          "dish_id": 10,
+          "name": "Rau muống xào tỏi",
+          "reason": "Thanh nhiệt, giàu chất xơ"
+        }
+      ],
+      "snacks": [
+        {
+          "dish_id": 7,
+          "name": "Chè đậu xanh",
+          "reason": "Thanh nhiệt, mát gan"
+        }
+      ],
+      "avoid": [1, 4, 9, 11],
+      "tips": [
+        "Uống đủ nước",
+        "Tránh đồ cay nóng",
+        "Ăn nhiều rau xanh, trái cây"
+      ]
+    },
+    
+    "tỳ_vị_hư": {
+      "name": "Thực đơn cho người tỳ vị hư",
+      "description": "Thực đơn dễ tiêu, kiện tỳ",
+      "breakfast": [
+        {
+          "dish_id": 1,
+          "name": "Cháo gà gừng",
+          "reason": "Dễ tiêu, kiện tỳ"
+        },
+        {
+          "dish_id": 9,
+          "name": "Trà gừng mật ong",
+          "reason": "Ấm tỳ vị, kích thích tiêu hóa"
+        }
+      ],
+      "lunch": [
+        {
+          "dish_id": 8,
+          "name": "Cá chép hấp",
+          "reason": "Dễ tiêu, bổ tỳ"
+        },
+        {
+          "dish_id": 5,
+          "name": "Súp bí đỏ",
+          "reason": "Mềm, dễ tiêu hóa"
+        }
+      ],
+      "dinner": [
+        {
+          "dish_id": 12,
+          "name": "Súp miso",
+          "reason": "Tốt cho đường ruột"
+        },
+        {
+          "dish_id": 10,
+          "name": "Rau muống xào tỏi",
+          "reason": "Rau chín dễ tiêu"
+        }
+      ],
+      "snacks": [
+        {
+          "suggestion": "Sữa chua",
+          "reason": "Tốt cho đường ruột"
+        }
+      ],
+      "avoid": [4, 6, 11],
+      "tips": [
+        "Ăn chín uống sôi",
+        "Chia nhỏ bữa ăn",
+        "Nhai kỹ",
+        "Tránh đồ sống lạnh"
+      ]
+    },
+    
+    "thấp_nhiệt": {
+      "name": "Thực đơn cho người thấp nhiệt",
+      "description": "Thực đơn thanh nhiệt lợi thấp",
+      "breakfast": [
+        {
+          "dish_id": 3,
+          "name": "Nước đậu đen rang",
+          "reason": "Thanh nhiệt, lợi tiểu"
+        },
+        {
+          "dish_id": 5,
+          "name": "Súp bí đỏ",
+          "reason": "Bình hòa, không sinh thấp"
+        }
+      ],
+      "lunch": [
+        {
+          "dish_id": 2,
+          "name": "Canh mồng tơi nấu cua",
+          "reason": "Thanh nhiệt lợi thấp"
+        },
+        {
+          "dish_id": 6,
+          "name": "Gỏi cuốn tôm thịt",
+          "reason": "Thanh mát, ít dầu mỡ"
+        }
+      ],
+      "dinner": [
+        {
+          "dish_id": 12,
+          "name": "Súp miso",
+          "reason": "Nhẹ bụng, tốt cho tiêu hóa"
+        },
+        {
+          "dish_id": 10,
+          "name": "Rau muống xào tỏi",
+          "reason": "Thanh nhiệt, lợi tiểu"
+        }
+      ],
+      "snacks": [
+        {
+          "dish_id": 7,
+          "name": "Chè đậu xanh",
+          "reason": "Thanh nhiệt giải độc"
+        }
+      ],
+      "avoid": [1, 4, 9, 11],
+      "tips": [
+        "Tránh đồ ngọt, béo",
+        "Uống nhiều nước",
+        "Ăn nhạt",
+        "Vận động nhẹ để thông khí huyết"
+      ]
+    }
+  },
+  
+  "seasonal_plans": {
+    "hè": {
+      "breakfast": [1, 3, 5],
+      "lunch": [2, 6, 8],
+      "dinner": [10, 12],
+      "drinks": [3, 7],
+      "avoid": [4, 9, 11],
+      "reason": "Mùa hè nóng, cần thanh nhiệt giải độc"
+    },
+    "đông": {
+      "breakfast": [1, 9],
+      "lunch": [4, 5, 8],
+      "dinner": [11, 12],
+      "drinks": [9],
+      "avoid": [2, 3, 6, 7],
+      "reason": "Mùa đông lạnh, cần bổ dương ấm bụng"
+    },
+    "xuân": {
+      "breakfast": [1, 5],
+      "lunch": [6, 8],
+      "dinner": [10, 12],
+      "drinks": [3, 9],
+      "avoid": [2, 4],
+      "reason": "Mùa xuân ẩm, cần kiện tỳ trừ thấp"
+    },
+    "thu": {
+      "breakfast": [1, 5],
+      "lunch": [6, 8],
+      "dinner": [10, 12],
+      "drinks": [3, 7],
+      "avoid": [2, 4],
+      "reason": "Mùa thu khô, cần nhuận phế bổ âm"
+    }
+  },
+  
+  "dietary_restrictions": {
+    "vegetarian": [3, 5, 7, 10, 12],
+    "low_sodium": [3, 5, 6, 7, 10, 12],
+    "low_calorie": [3, 6, 7, 10, 12],
+    "high_protein": [1, 2, 4, 6, 8, 11],
+    "gluten_free": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12],
+    "dairy_free": [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12],
+    "nut_free": [1, 2, 3, 4, 5, 7, 8, 9, 10, 11, 12]
+  },
+  
+  "cooking_tips": {
+    "preserve_nutrients": [
+      "Hấp thay vì luộc để giữ vitamin",
+      "Xào nhanh với lửa lớn",
+      "Không nấu quá chín rau củ",
+      "Sử dụng nước luộc rau để nấu canh"
+    ],
+    "enhance_flavor": [
+      "Dùng thảo mộc tươi thay muối",
+      "Thêm chanh, giấm để tăng vị",
+      "Sử dụng nấm hương, tảo biển để tạo vị umami",
+      "Rang gia vị trước khi sử dụng"
+    ],
+    "reduce_fat": [
+      "Hầm rồi để nguội, hớt bỏ mỡ",
+      "Dùng nồi chiên không dầu",
+      "Xào với ít dầu bằng chảo chống dính",
+      "Chọn thịt nạc, bỏ da"
+    ]
+  }
+}

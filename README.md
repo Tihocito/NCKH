@@ -1,91 +1,70 @@
-# Health Food Expert System - Hệ Chuyên Gia Mờ Tư Vấn Món Ăn Sức Khỏe
+# Getting Started with Create React App
 
-## 📋 Giới Thiệu
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Hệ thống hỗ trợ quyết định dinh dưỡng sử dụng Hệ chuyên gia mờ để đề xuất món ăn phù hợp dựa trên triệu chứng sức khỏe. Đề tài nghiên cứu khoa học kết hợp Trí tuệ nhân tạo, Logic mờ và tri thức Đông y - Tây y.
+## Available Scripts
 
-**Đề tài:** Nghiên cứu mô hình hệ chuyên gia mờ phòng và chữa bệnh bằng món ăn hàng ngày  
-**Trường:** Đại học Thăng Long  
-**Giảng viên hướng dẫn:** PGS.TS Nguyễn Hoàng Phương  
-**Sinh viên thực hiện:** Bùi Đức Mạnh - MSV: A48799  
-**Năm:** 2024-2025
+In the project directory, you can run:
 
-## ✨ Tính Năng Chính
+### `npm start`
 
-### 🧠 Hệ Thống Thông Minh
-- **Tư vấn đa chế độ**:
-  - **Theo triệu chứng**: Nhập triệu chứng (đau đầu, mệt mỏi...) để nhận thực đơn chữa bệnh.
-  - **Từ tủ lạnh**: Nhập nguyên liệu có sẵn để nhận gợi ý món ăn ngon.
-- **Logic mờ & Hệ chuyên gia**: Xử lý thông tin mơ hồ để đưa ra quyết định chính xác.
-- **Kết hợp Đông-Tây y**: Tích hợp tri thức dinh dưỡng hiện đại và y lý Đông y.
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
-### 🍽️ Trải Nghiệm Người Dùng Nâng Cao
-- **Thực đơn đa dạng**: Cung cấp tới **15 Option thực đơn** khác nhau cho mỗi lần tư vấn.
-- **Tính toán dinh dưỡng**: Hiển thị **tổng lượng Calo** cho từng mâm cơm gợi ý.
-- **Đi chợ thông minh**: Tự động tạo **Danh sách đi chợ (Shopping List)** từ thực đơn đã chọn.
-- **Lịch sử tư vấn**: Lưu lại các lần tra cứu để xem lại sau.
+The page will reload when you make changes.\
+You may also see any lint errors in the console.
 
-### 🛡️ An Toàn & Đáng Tin Cậy
-- **Kiểm tra an toàn**: Cảnh báo dị ứng, tương tác thuốc, và chống chỉ định.
-- **Giải thích minh bạch**: Cung cấp lý do chi tiết tại sao món ăn được đề xuất.
+### `npm test`
 
-### 📊 Cơ Sở Tri Thức Phong Phú
-- **100+ món ăn Việt Nam**: Được gán nhãn đa chiều
-- **Ontology triệu chứng**: Cấu trúc hóa tri thức y học
-- **Luật suy diễn mờ**: 50+ luật mờ cho các tình huống phổ biến
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### 🚀 Lộ Trình Nâng Cấp (2025)
-- [x] Giao diện React hiện đại & Tách biệt chức năng
-- [x] Tính năng Shopping List & Calorie Counter
-- [ ] Tích hợp AI Chatbot (LLM)
-- [ ] Phân Tích Hình Ảnh Nâng Cao
-- [ ] Mobile App (React Native)
+### `npm run build`
 
-## 🏗️ Kiến Trúc Hệ Thống
-health_food_expert_system/
-├── backend/               # Mã nguồn Backend (Python)
-│   ├── data/              # Dữ liệu và tri thức
-│   │   ├── knowledge_base.json
-│   │   ├── fuzzy_rules.json
-│   │   └── ...
-│   ├── src/               # Mã nguồn xử lý chính
-│   │   ├── core/
-│   │   └── services/
-│   ├── utils/             # Tiện ích
-│   ├── tests/             # Kiểm thử
-│   ├── main.py            # File chạy chính
-│   └── requirements.txt   # Thư viện Python
-├── frontend/              # Mã nguồn Frontend (ReactJS)
-│   ├── src/
-│   ├── public/
-│   └── package.json
-└── README.md
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-## 🚀 Cài Đặt & Chạy
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
 
-### Yêu Cầu Hệ Thống
-- Python 3.8+
-- Node.js 14+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### Cài Đặt
+### `npm run eject`
 
-1. **Clone repository**
-```bash
-git clone <repository-url>
-cd health_food_expert_system
-```
+**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-2. **Cài đặt Backend**
-```bash
-cd backend
-pip install -r requirements.txt
-python main.py --web
-# Server chạy tại: http://localhost:5000
-```
+If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-3. **Cài đặt Frontend**
-```bash
-cd frontend
-npm install
-npm start
-```
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+
+### Analyzing the Bundle Size
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+
+### Making a Progressive Web App
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+
+### Advanced Configuration
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+
+### Deployment
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+
+### `npm run build` fails to minify
+
+This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

@@ -1,0 +1,349 @@
+{
+  "input_variables": {
+    "cold_sensation": {
+      "linguistic_terms": ["Không", "Hơi", "Vừa", "Nhiều", "Rất nhiều"],
+      "range": [0, 5],
+      "description": "Cảm giác sợ lạnh, tay chân lạnh"
+    },
+    "abdominal_pain": {
+      "linguistic_terms": ["Không", "Nhẹ", "Vừa", "Nặng", "Rất nặng"],
+      "range": [0, 5],
+      "description": "Mức độ đau bụng"
+    },
+    "constipation": {
+      "linguistic_terms": ["Không", "Nhẹ", "Vừa", "Nặng", "Rất nặng"],
+      "range": [0, 5],
+      "description": "Mức độ táo bón"
+    },
+    "fatigue": {
+      "linguistic_terms": ["Không", "Hơi mệt", "Mệt", "Rất mệt", "Kiệt sức"],
+      "range": [0, 5],
+      "description": "Mức độ mệt mỏi"
+    },
+    "internal_heat": {
+      "linguistic_terms": ["Không", "Nhẹ", "Vừa", "Nhiều", "Rất nhiều"],
+      "range": [0, 5],
+      "description": "Cảm giác nóng trong người"
+    },
+    "appetite": {
+      "linguistic_terms": ["Rất kém", "Kém", "Bình thường", "Tốt", "Rất tốt"],
+      "range": [0, 5],
+      "description": "Khả năng ăn uống"
+    },
+    "sleep_quality": {
+      "linguistic_terms": ["Rất kém", "Kém", "Bình thường", "Tốt", "Rất tốt"],
+      "range": [0, 5],
+      "description": "Chất lượng giấc ngủ"
+    },
+    "stress_level": {
+      "linguistic_terms": ["Rất thấp", "Thấp", "Trung bình", "Cao", "Rất cao"],
+      "range": [0, 5],
+      "description": "Mức độ căng thẳng"
+    },
+    "tongue_coating": {
+      "linguistic_terms": ["Trắng mỏng", "Trắng dày", "Vàng mỏng", "Vàng dày", "Không rêu"],
+      "range": [0, 5],
+      "description": "Tình trạng rêu lưỡi"
+    },
+    "urine_color": {
+      "linguistic_terms": ["Trong", "Vàng nhạt", "Vàng", "Vàng đậm", "Đỏ"],
+      "range": [0, 5],
+      "description": "Màu sắc nước tiểu"
+    }
+  },
+  
+  "output_variables": {
+    "need_warming": {
+      "linguistic_terms": ["Rất thấp", "Thấp", "Trung bình", "Cao", "Rất cao"],
+      "range": [0, 1],
+      "description": "Nhu cầu ôn trung tán hàn"
+    },
+    "need_heat_clearing": {
+      "linguistic_terms": ["Rất thấp", "Thấp", "Trung bình", "Cao", "Rất cao"],
+      "range": [0, 1],
+      "description": "Nhu cầu thanh nhiệt"
+    },
+    "need_spleen_tonic": {
+      "linguistic_terms": ["Rất thấp", "Thấp", "Trung bình", "Cao", "Rất cao"],
+      "range": [0, 1],
+      "description": "Nhu cầu kiện tỳ"
+    },
+    "need_blood_tonic": {
+      "linguistic_terms": ["Rất thấp", "Thấp", "Trung bình", "Cao", "Rất cao"],
+      "range": [0, 1],
+      "description": "Nhu cầu bổ khí huyết"
+    },
+    "need_damp_clearing": {
+      "linguistic_terms": ["Rất thấp", "Thấp", "Trung bình", "Cao", "Rất cao"],
+      "range": [0, 1],
+      "description": "Nhu cầu trừ thấp"
+    },
+    "need_qi_regulating": {
+      "linguistic_terms": ["Rất thấp", "Thấp", "Trung bình", "Cao", "Rất cao"],
+      "range": [0, 1],
+      "description": "Nhu cầu hành khí"
+    },
+    "need_yin_tonic": {
+      "linguistic_terms": ["Rất thấp", "Thấp", "Trung bình", "Cao", "Rất cao"],
+      "range": [0, 1],
+      "description": "Nhu cầu bổ âm"
+    },
+    "need_yang_tonic": {
+      "linguistic_terms": ["Rất thấp", "Thấp", "Trung bình", "Cao", "Rất cao"],
+      "range": [0, 1],
+      "description": "Nhu cầu bổ dương"
+    }
+  },
+  
+  "fuzzy_rules": [
+    {
+      "id": "R1",
+      "if": {
+        "cold_sensation": "Rất nhiều",
+        "abdominal_pain": "Nặng",
+        "urine_color": "Trong"
+      },
+      "then": {
+        "need_warming": "Rất cao",
+        "need_spleen_tonic": "Cao",
+        "need_yang_tonic": "Cao",
+        "need_heat_clearing": "Rất thấp"
+      },
+      "weight": 0.95,
+      "description": "Hàn thấp nặng: sợ lạnh nhiều + đau bụng nặng + nước tiểu trong"
+    },
+    {
+      "id": "R2",
+      "if": {
+        "internal_heat": "Rất nhiều",
+        "constipation": "Rất nặng",
+        "urine_color": "Vàng đậm"
+      },
+      "then": {
+        "need_warming": "Rất thấp",
+        "need_heat_clearing": "Rất cao",
+        "need_yin_tonic": "Cao",
+        "need_damp_clearing": "Trung bình"
+      },
+      "weight": 0.90,
+      "description": "Thực nhiệt: nóng trong nhiều + táo bón nặng + nước tiểu vàng đậm"
+    },
+    {
+      "id": "R3",
+      "if": {
+        "fatigue": "Kiệt sức",
+        "appetite": "Rất kém",
+        "cold_sensation": "Vừa"
+      },
+      "then": {
+        "need_spleen_tonic": "Rất cao",
+        "need_blood_tonic": "Cao",
+        "need_warming": "Trung bình",
+        "need_qi_regulating": "Trung bình"
+      },
+      "weight": 0.85,
+      "description": "Tỳ vị hư nhược: mệt mỏi nhiều + ăn kém + sợ lạnh vừa"
+    },
+    {
+      "id": "R4",
+      "if": {
+        "abdominal_pain": "Nhẹ",
+        "fatigue": "Mệt",
+        "stress_level": "Cao"
+      },
+      "then": {
+        "need_spleen_tonic": "Cao",
+        "need_qi_regulating": "Cao",
+        "need_warming": "Trung bình",
+        "need_blood_tonic": "Thấp"
+      },
+      "weight": 0.80,
+      "description": "Can tỳ bất hòa: đau bụng nhẹ + mệt mỏi + căng thẳng"
+    },
+    {
+      "id": "R5",
+      "if": {
+        "internal_heat": "Nhẹ",
+        "constipation": "Nhẹ",
+        "tongue_coating": "Vàng mỏng"
+      },
+      "then": {
+        "need_heat_clearing": "Trung bình",
+        "need_damp_clearing": "Trung bình",
+        "need_warming": "Thấp",
+        "need_yin_tonic": "Thấp"
+      },
+      "weight": 0.75,
+      "description": "Thấp nhiệt nhẹ: nóng trong nhẹ + táo bón nhẹ + rêu lưỡi vàng mỏng"
+    },
+    {
+      "id": "R6",
+      "if": {
+        "fatigue": "Rất mệt",
+        "sleep_quality": "Rất kém",
+        "stress_level": "Rất cao"
+      },
+      "then": {
+        "need_blood_tonic": "Cao",
+        "need_yin_tonic": "Cao",
+        "need_qi_regulating": "Trung bình",
+        "need_spleen_tonic": "Trung bình"
+      },
+      "weight": 0.85,
+      "description": "Tâm tỳ lưỡng hư: mệt mỏi nhiều + mất ngủ + căng thẳng cao"
+    },
+    {
+      "id": "R7",
+      "if": {
+        "cold_sensation": "Nhiều",
+        "fatigue": "Rất mệt",
+        "urine_color": "Trong",
+        "tongue_coating": "Trắng dày"
+      },
+      "then": {
+        "need_warming": "Rất cao",
+        "need_yang_tonic": "Cao",
+        "need_damp_clearing": "Trung bình",
+        "need_spleen_tonic": "Cao"
+      },
+      "weight": 0.90,
+      "description": "Dương hư thấp thịnh: sợ lạnh + mệt mỏi + nước tiểu trong + rêu lưỡi trắng dày"
+    },
+    {
+      "id": "R8",
+      "if": {
+        "internal_heat": "Vừa",
+        "sleep_quality": "Kém",
+        "tongue_coating": "Không rêu"
+      },
+      "then": {
+        "need_yin_tonic": "Cao",
+        "need_heat_clearing": "Trung bình",
+        "need_blood_tonic": "Trung bình",
+        "need_warming": "Thấp"
+      },
+      "weight": 0.80,
+      "description": "Âm hư hỏa vượng: nóng trong + mất ngủ + lưỡi không rêu"
+    },
+    {
+      "id": "R9",
+      "if": {
+        "appetite": "Kém",
+        "abdominal_pain": "Vừa",
+        "tongue_coating": "Trắng dày"
+      },
+      "then": {
+        "need_spleen_tonic": "Cao",
+        "need_damp_clearing": "Cao",
+        "need_warming": "Trung bình",
+        "need_qi_regulating": "Thấp"
+      },
+      "weight": 0.85,
+      "description": "Tỳ hư thấp trệ: ăn kém + đau bụng + rêu lưỡi trắng dày"
+    },
+    {
+      "id": "R10",
+      "if": {
+        "constipation": "Vừa",
+        "stress_level": "Cao",
+        "urine_color": "Vàng"
+      },
+      "then": {
+        "need_qi_regulating": "Cao",
+        "need_heat_clearing": "Trung bình",
+        "need_damp_clearing": "Thấp",
+        "need_warming": "Thấp"
+      },
+      "weight": 0.75,
+      "description": "Can khí uất kết: táo bón + căng thẳng + nước tiểu vàng"
+    },
+    {
+      "id": "R11",
+      "if": {
+        "fatigue": "Mệt",
+        "cold_sensation": "Hơi",
+        "appetite": "Bình thường"
+      },
+      "then": {
+        "need_blood_tonic": "Cao",
+        "need_warming": "Trung bình",
+        "need_spleen_tonic": "Trung bình",
+        "need_yin_tonic": "Thấp"
+      },
+      "weight": 0.70,
+      "description": "Khí huyết hư: mệt mỏi + hơi sợ lạnh + ăn uống bình thường"
+    },
+    {
+      "id": "R12",
+      "if": {
+        "internal_heat": "Nhiều",
+        "sleep_quality": "Rất kém",
+        "stress_level": "Rất cao"
+      },
+      "then": {
+        "need_heat_clearing": "Cao",
+        "need_qi_regulating": "Cao",
+        "need_yin_tonic": "Trung bình",
+        "need_warming": "Rất thấp"
+      },
+      "weight": 0.85,
+      "description": "Tâm hỏa vượng: nóng trong + mất ngủ nặng + căng thẳng cao"
+    },
+    {
+      "id": "R13",
+      "if": {
+        "abdominal_pain": "Nặng",
+        "urine_color": "Vàng đậm",
+        "tongue_coating": "Vàng dày"
+      },
+      "then": {
+        "need_damp_clearing": "Cao",
+        "need_heat_clearing": "Cao",
+        "need_qi_regulating": "Trung bình",
+        "need_warming": "Thấp"
+      },
+      "weight": 0.80,
+      "description": "Thấp nhiệt trường vị: đau bụng nặng + nước tiểu vàng đậm + rêu lưỡi vàng dày"
+    },
+    {
+      "id": "R14",
+      "if": {
+        "cold_sensation": "Vừa",
+        "fatigue": "Kiệt sức",
+        "appetite": "Rất kém"
+      },
+      "then": {
+        "need_yang_tonic": "Cao",
+        "need_spleen_tonic": "Cao",
+        "need_warming": "Cao",
+        "need_blood_tonic": "Trung bình"
+      },
+      "weight": 0.90,
+      "description": "Tỳ thận dương hư: sợ lạnh + mệt mỏi kiệt sức + ăn rất kém"
+    },
+    {
+      "id": "R15",
+      "if": {
+        "constipation": "Nhẹ",
+        "appetite": "Tốt",
+        "stress_level": "Thấp"
+      },
+      "then": {
+        "need_qi_regulating": "Thấp",
+        "need_spleen_tonic": "Thấp",
+        "need_heat_clearing": "Thấp",
+        "need_warming": "Thấp"
+      },
+      "weight": 0.60,
+      "description": "Cơ thể khỏe mạnh: táo bón nhẹ + ăn uống tốt + ít căng thẳng"
+    }
+  ],
+  
+  "rule_groups": {
+    "hàn_chứng": ["R1", "R7", "R14"],
+    "nhiệt_chứng": ["R2", "R5", "R8", "R12", "R13"],
+    "hư_chứng": ["R3", "R6", "R11", "R14"],
+    "thực_chứng": ["R2", "R4", "R9", "R10", "R13"],
+    "thấp_chứng": ["R5", "R7", "R9", "R13"]
+  }
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "id": "canh_ca_chua_trung",
+    "name": "Canh cà chua trứng",
+    "ingredients": ["cà chua", "trứng", "hành lá", "hành tím", "nước mắm", "tiêu"],
+    "tags": ["soup", "egg", "quick"]
+  },
+  {
+    "id": "rau_muong_xao_toi",
+    "name": "Rau muống xào tỏi",
+    "ingredients": ["rau muống", "tỏi", "dầu ăn", "muối"],
+    "tags": ["veg", "stir_fry", "quick"]
+  },
+  {
+    "id": "thit_kho_trung",
+    "name": "Thịt kho trứng",
+    "ingredients": ["thịt ba chỉ", "trứng", "nước mắm", "đường", "tỏi", "hành tím", "tiêu", "nước dừa"],
+    "tags": ["main", "braise"]
+  },
+  {
+    "id": "dau_hu_sot_ca",
+    "name": "Đậu hũ sốt cà",
+    "ingredients": ["đậu hũ", "cà chua", "hành tím", "tỏi", "nước mắm", "đường"],
+    "tags": ["veg", "main", "quick"]
+  }
+]

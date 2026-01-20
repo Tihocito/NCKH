@@ -1,0 +1,91 @@
+{
+  "disease_terms": {
+    "viêm_dạ_dày": ["viêm dạ dày", "đau dạ dày", "viêm loét dạ dày", "bao tử", "dạ dày"],
+    "tiểu_đường": ["tiểu đường", "đái tháo đường", "đường huyết cao", "tiểu đường type 2"],
+    "cao_huyết_áp": ["cao huyết áp", "tăng huyết áp", "huyết áp cao", "tăng áp"],
+    "gout": ["gout", "gút", "viêm khớp do gout", "acid uric cao"],
+    "gan_nhiễm_mỡ": ["gan nhiễm mỡ", "mỡ gan", "gan nhiễm mỡ không do rượu"],
+    "suy_thận": ["suy thận", "thận yếu", "bệnh thận mạn", "thận hư"],
+    "hen_suyễn": ["hen suyễn", "hen phế quản", "khó thở", "thở khò khè"],
+    "viêm_khớp": ["viêm khớp", "thoái hóa khớp", "đau khớp", "viêm khớp dạng thấp"],
+    "trầm_cảm": ["trầm cảm", "stress", "lo âu", "rối loạn lo âu"],
+    "mất_ngủ": ["mất ngủ", "khó ngủ", "ngủ không sâu", "rối loạn giấc ngủ"]
+  },
+  
+  "medication_terms": {
+    "warfarin": ["warfarin", "coumadin", "thuốc chống đông", "chống đông máu"],
+    "metformin": ["metformin", "glucophage", "thuốc tiểu đường", "hạ đường huyết"],
+    "amlodipine": ["amlodipine", "norvasc", "thuốc huyết áp", "chẹn canxi"],
+    "omeprazole": ["omeprazole", "losect", "thuốc dạ dày", "ức chế bơm proton"],
+    "atorvastatin": ["atorvastatin", "lipitor", "thuốc mỡ máu", "statin"],
+    "levothyroxine": ["levothyroxine", "euthyrox", "thuốc tuyến giáp", "hormone tuyến giáp"],
+    "paracetamol": ["paracetamol", "panadol", "efferalgan", "thuốc giảm đau hạ sốt"],
+    "ibuprofen": ["ibuprofen", "advil", "brufen", "thuốc kháng viêm"],
+    "prednisolone": ["prednisolone", "corticoid", "thuốc corticoide", "chống viêm"],
+    "loratadine": ["loratadine", "clarityne", "thuốc dị ứng", "kháng histamine"]
+  },
+  
+  "symptom_terms": {
+    "đau_bụng": ["đau bụng", "đau dạ dày", "đau bụng âm ỉ", "đau quặn bụng"],
+    "buồn_nôn": ["buồn nôn", "nôn", "ói", "buồn ói"],
+    "tiêu_chảy": ["tiêu chảy", "đi ngoài", "ỉa chảy", "phân lỏng"],
+    "táo_bón": ["táo bón", "bí đại tiện", "khó đi ngoài", "phân khô"],
+    "sốt": ["sốt", "nóng sốt", "cảm sốt", "sốt cao"],
+    "ho": ["ho", "ho khan", "ho có đờm", "ho dai dẳng"],
+    "khó_thở": ["khó thở", "thở hụt hơi", "thở nông", "khó hít sâu"],
+    "chóng_mặt": ["chóng mặt", "hoa mắt", "quay cuồng", "choáng váng"],
+    "mệt_mỏi": ["mệt mỏi", "uể oải", "kiệt sức", "không có sức"],
+    "đau_đầu": ["đau đầu", "nhức đầu", "đau nửa đầu", "đau cả đầu"]
+  },
+  
+  "lab_test_terms": {
+    "glucose": ["glucose", "đường huyết", "đường máu", "blood sugar"],
+    "cholesterol": ["cholesterol", "mỡ máu", "lipid máu", "cholesterol toàn phần"],
+    "creatinine": ["creatinine", "creatinin", "chức năng thận", "độ thanh thải"],
+    "alt": ["ALT", "SGOT", "men gan", "transaminase"],
+    "ast": ["AST", "SGPT", "men gan", "transaminase"],
+    "wbc": ["WBC", "bạch cầu", "tế bào bạch cầu", "số lượng bạch cầu"],
+    "rbc": ["RBC", "hồng cầu", "tế bào hồng cầu", "số lượng hồng cầu"],
+    "hb": ["Hb", "hemoglobin", "huyết sắc tố", "máu"],
+    "plt": ["PLT", "tiểu cầu", "số lượng tiểu cầu", "platelet"],
+    "uric_acid": ["acid uric", "uric acid", "gout", "tinh thể urat"]
+  },
+  
+  "unit_patterns": {
+    "glucose": ["mmol/L", "mg/dL", "mg%"],
+    "pressure": ["mmHg", "mm Hg"],
+    "weight": ["kg", "kilogram", "cân"],
+    "height": ["cm", "mét", "centimet"],
+    "temperature": ["°C", "độ C", "độ"],
+    "age": ["tuổi", "năm", "tháng"]
+  },
+  
+  "regex_patterns": {
+    "glucose_value": "Glucose.*?([0-9]+[,.][0-9]+)\\s*(mmol/L|mg/dL|mg%)",
+    "blood_pressure": "Huyết áp.*?([0-9]+)\\s*/\\s*([0-9]+)\\s*mmHg",
+    "cholesterol_value": "Cholesterol.*?([0-9]+[,.][0-9]+)\\s*(mmol/L|mg/dL)",
+    "creatinine_value": "Creatinine.*?([0-9]+[,.][0-9]+)\\s*(mg/dL|μmol/L)",
+    "age_extraction": "Tuổi.*?([0-9]+)",
+    "weight_extraction": "Cân nặng.*?([0-9]+[,.][0-9]*)\\s*(kg|kilogram)",
+    "height_extraction": "Chiều cao.*?([0-9]+[,.][0-9]*)\\s*(cm|mét)"
+  },
+  
+  "medical_abbreviations": {
+    "HT": "cao huyết áp",
+    "DM": "tiểu đường",
+    "CKD": "bệnh thận mạn",
+    "CHD": "bệnh tim mạch vành",
+    "COPD": "bệnh phổi tắc nghẽn mạn tính",
+    "GERD": "trào ngược dạ dày thực quản",
+    "IBS": "hội chứng ruột kích thích",
+    "UTI": "nhiễm trùng đường tiểu",
+    "URI": "nhiễm trùng đường hô hấp trên",
+    "LRTI": "nhiễm trùng đường hô hấp dưới"
+  },
+  
+  "symptom_severity_keywords": {
+    "nhẹ": ["nhẹ", "hơi", "đôi khi", "thỉnh thoảng", "ít"],
+    "vừa": ["vừa", "trung bình", "khá", "rõ rệt", "thường xuyên"],
+    "nặng": ["nặng", "nhiều", "rất", "dữ dội", "liên tục", "không chịu nổi"]
+  }
+}

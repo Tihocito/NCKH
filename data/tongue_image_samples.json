@@ -1,0 +1,126 @@
+{
+  "tongue_classes": {
+    "normal": {
+      "description": "Lưỡi bình thường",
+      "characteristics": ["Màu hồng nhạt", "Rêu trắng mỏng", "Không có vết răng", "Độ ẩm vừa phải"],
+      "indications": ["Cơ thể khỏe mạnh", "Âm dương cân bằng"],
+      "symptoms": [],
+      "food_recommendations": ["Ăn uống cân bằng", "Duy trì chế độ hiện tại"]
+    },
+    "pale_tongue": {
+      "description": "Lưỡi nhợt",
+      "characteristics": ["Màu trắng nhợt", "Thiếu sắc hồng", "Có thể hơi bệu"],
+      "indications": ["Khí huyết hư", "Dương hư", "Hàn chứng"],
+      "symptoms": ["Mệt mỏi", "Sợ lạnh", "Thiếu máu", "Ăn kém"],
+      "food_recommendations": ["Thức ăn bổ khí huyết", "Thức ăn tính ấm"],
+      "sample_images": ["tongue_pale_1.jpg", "tongue_pale_2.jpg"]
+    },
+    "red_tongue": {
+      "description": "Lưỡi đỏ",
+      "characteristics": ["Màu đỏ tươi", "Có thể không rêu", "Khô"],
+      "indications": ["Nhiệt chứng", "Âm hư hỏa vượng"],
+      "symptoms": ["Nóng trong", "Miệng khô", "Táo bón", "Mất ngủ"],
+      "food_recommendations": ["Thức ăn thanh nhiệt", "Thức ăn bổ âm"],
+      "sample_images": ["tongue_red_1.jpg", "tongue_red_2.jpg"]
+    },
+    "purple_tongue": {
+      "description": "Lưỡi tím",
+      "characteristics": ["Màu tím", "Có thể có điểm ứ huyết", "Môi tím"],
+      "indications": ["Huyết ứ", "Khí trệ", "Hàn ngưng"],
+      "symptoms": ["Đau cố định", "Đau như kim châm", "Kinh nguyệt có máu cục"],
+      "food_recommendations": ["Thức ăn hoạt huyết", "Thức ăn hành khí"],
+      "sample_images": ["tongue_purple_1.jpg"]
+    },
+    "white_coating": {
+      "description": "Rêu lưỡi trắng",
+      "characteristics": ["Rêu trắng dày", "Có thể nhờn", "Che phủ toàn bộ lưỡi"],
+      "indications": ["Hàn thấp", "Đờm thấp", "Tỳ vị hư"],
+      "symptoms": ["Đầy bụng", "Ăn kém", "Người nặng nề", "Đờm nhiều"],
+      "food_recommendations": ["Thức ăn kiện tỳ trừ thấp", "Tránh đồ ngọt béo"],
+      "sample_images": ["tongue_white_coating_1.jpg", "tongue_white_coating_2.jpg"]
+    },
+    "yellow_coating": {
+      "description": "Rêu lưỡi vàng",
+      "characteristics": ["Rêu vàng", "Có thể khô hoặc nhờn", "Dày mỏng khác nhau"],
+      "indications": ["Nhiệt chứng", "Thấp nhiệt"],
+      "symptoms": ["Sốt", "Miệng đắng", "Táo bón", "Nước tiểu vàng"],
+      "food_recommendations": ["Thức ăn thanh nhiệt", "Thức ăn lợi thấp"],
+      "sample_images": ["tongue_yellow_coating_1.jpg"]
+    },
+    "teeth_marks": {
+      "description": "Vết răng cưa",
+      "characteristics": ["Vết răng ở rìa lưỡi", "Lưỡi bệu to"],
+      "indications": ["Tỳ hư", "Thấp thịnh", "Khí hư"],
+      "symptoms": ["Mệt mỏi", "Ăn kém", "Đầy bụng", "Phân nát"],
+      "food_recommendations": ["Thức ăn kiện tỳ", "Tránh đồ sống lạnh"],
+      "sample_images": ["tongue_teeth_marks_1.jpg"]
+    },
+    "cracked_tongue": {
+      "description": "Lưỡi nứt nẻ",
+      "characteristics": ["Các vết nứt trên lưỡi", "Có thể sâu hoặc nông", "Thường kèm khô"],
+      "indications": ["Âm hư", "Tân dịch thiếu", "Hỏa vượng"],
+      "symptoms": ["Miệng khô", "Khát nước", "Táo bón", "Mất ngủ"],
+      "food_recommendations": ["Thức ăn bổ âm", "Uống đủ nước"],
+      "sample_images": ["tongue_cracked_1.jpg"]
+    }
+  },
+  
+  "analysis_rules": [
+    {
+      "condition": "pale_tongue + white_coating",
+      "interpretation": "Hàn thấp nặng",
+      "confidence": 0.85,
+      "symptoms_to_add": {"cold_sensation": 4.0, "fatigue": 3.5}
+    },
+    {
+      "condition": "red_tongue + yellow_coating",
+      "interpretation": "Thực nhiệt",
+      "confidence": 0.80,
+      "symptoms_to_add": {"internal_heat": 4.0, "constipation": 3.0}
+    },
+    {
+      "condition": "pale_tongue + teeth_marks",
+      "interpretation": "Tỳ khí hư",
+      "confidence": 0.75,
+      "symptoms_to_add": {"fatigue": 4.0, "appetite": 1.5}
+    },
+    {
+      "condition": "red_tongue + cracked_tongue",
+      "interpretation": "Âm hư hỏa vượng",
+      "confidence": 0.90,
+      "symptoms_to_add": {"internal_heat": 4.5, "sleep_quality": 1.0}
+    },
+    {
+      "condition": "purple_tongue",
+      "interpretation": "Huyết ứ",
+      "confidence": 0.70,
+      "symptoms_to_add": {"abdominal_pain": 3.5, "stress_level": 3.0}
+    }
+  ],
+  
+  "color_ranges": {
+    "pale": {"hue_range": [0, 30], "saturation_range": [0, 30], "value_range": [150, 255]},
+    "normal": {"hue_range": [0, 15], "saturation_range": [30, 70], "value_range": [100, 200]},
+    "red": {"hue_range": [0, 10], "saturation_range": [70, 100], "value_range": [100, 200]},
+    "purple": {"hue_range": [270, 330], "saturation_range": [40, 80], "value_range": [80, 180]},
+    "white_coating": {"hue_range": [0, 180], "saturation_range": [0, 30], "value_range": [200, 255]},
+    "yellow_coating": {"hue_range": [20, 40], "saturation_range": [40, 80], "value_range": [150, 230]}
+  },
+  
+  "feature_extraction": {
+    "color_features": ["mean_hue", "mean_saturation", "mean_value", "std_hue", "std_saturation", "std_value"],
+    "texture_features": ["contrast", "homogeneity", "energy", "correlation"],
+    "shape_features": ["area", "perimeter", "circularity", "rectangularity"],
+    "edge_features": ["edge_density", "edge_intensity"]
+  },
+  
+  "model_training": {
+    "dataset_size": 500,
+    "train_test_split": 0.8,
+    "image_size": [128, 128],
+    "augmentation": ["rotate", "flip", "brightness", "contrast"],
+    "classes": 8,
+    "epochs": 50,
+    "batch_size": 16
+  }
+}

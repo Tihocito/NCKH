@@ -1,0 +1,766 @@
+{
+  "@context": {
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "tlcm": "http://example.org/tlcm#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "skos": "http://www.w3.org/2004/02/skos/core#"
+  },
+  
+  "@graph": [
+    {
+      "@id": "tlcm:Symptom",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:label": "Triệu chứng",
+      "rdfs:comment": "Lớp cha cho tất cả các triệu chứng trong y học cổ truyền",
+      "skos:definition": "Biểu hiện bất thường của cơ thể biểu hiện ra bên ngoài",
+      "skos:broader": "tlcm:HealthIndicator"
+    },
+    
+    {
+      "@id": "tlcm:DigestiveSymptom",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:Symptom",
+      "rdfs:label": "Triệu chứng tiêu hóa",
+      "skos:definition": "Triệu chứng liên quan đến hệ tiêu hóa",
+      "tlcm:organSystem": "Tỳ Vị",
+      "tlcm:relatedOrgans": ["Vị", "Trường", "Đại trường", "Tỳ"]
+    },
+    
+    {
+      "@id": "tlcm:GeneralSymptom",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:Symptom",
+      "rdfs:label": "Triệu chứng toàn thân",
+      "skos:definition": "Triệu chứng ảnh hưởng đến toàn bộ cơ thể"
+    },
+    
+    {
+      "@id": "tlcm:RespiratorySymptom",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:Symptom",
+      "rdfs:label": "Triệu chứng hô hấp",
+      "tlcm:organSystem": "Phế",
+      "tlcm:relatedOrgans": ["Phế", "Khí quản", "Phế quản"]
+    },
+    
+    {
+      "@id": "tlcm:NeurologicalSymptom",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:Symptom",
+      "rdfs:label": "Triệu chứng thần kinh",
+      "tlcm:organSystem": "Tâm Can",
+      "tlcm:relatedOrgans": ["Tâm", "Can", "Não"]
+    },
+    
+    {
+      "@id": "tlcm:ColdSensation",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:GeneralSymptom",
+      "rdfs:label": "Cảm giác lạnh",
+      "skos:altLabel": ["Sợ lạnh", "Tay chân lạnh"],
+      "tlcm:hasFuzzyVariable": "cold_sensation",
+      "tlcm:linguisticTerms": ["Không", "Hơi", "Vừa", "Nhiều", "Rất nhiều"],
+      "tlcm:traditionalMedicineInterpretation": "Thể hàn, dương khí hư, khí huyết không đầy đủ",
+      "tlcm:recommendedAction": "Ôn trung, tán hàn, bổ dương",
+      "tlcm:severityLevels": [
+        {
+          "level": "Nhẹ",
+          "description": "Hơi sợ gió, tay chân hơi lạnh",
+          "score": 1
+        },
+        {
+          "level": "Vừa",
+          "description": "Sợ lạnh rõ, thích mặc ấm, tay chân lạnh thường xuyên",
+          "score": 2
+        },
+        {
+          "level": "Nặng",
+          "description": "Sợ lạnh nhiều, mặc nhiều áo vẫn thấy lạnh, tay chân lạnh buốt",
+          "score": 3
+        },
+        {
+          "level": "Rất nặng",
+          "description": "Cảm giác lạnh toàn thân, run lạnh, không chịu được gió",
+          "score": 4
+        }
+      ],
+      "tlcm:differentiation": [
+        {
+          "type": "Biểu hàn",
+          "characteristics": ["Sợ lạnh, sốt", "Đau đầu", "Không khát"],
+          "pulse": "Phù khẩn"
+        },
+        {
+          "type": "Lý hàn",
+          "characteristics": ["Sợ lạnh, không sốt", "Tay chân lạnh", "Tiêu chảy"],
+          "pulse": "Trầm trì"
+        },
+        {
+          "type": "Dương hư",
+          "characteristics": ["Sợ lạnh", "Tự hãn", "Tiểu trong"],
+          "pulse": "Trầm tế"
+        }
+      ]
+    },
+    
+    {
+      "@id": "tlcm:AbdominalPain",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:DigestiveSymptom",
+      "rdfs:label": "Đau bụng",
+      "skos:altLabel": ["Đau dạ dày", "Đau bụng"],
+      "tlcm:hasFuzzyVariable": "abdominal_pain",
+      "tlcm:subTypes": [
+        {
+          "type": "Âm ỉ",
+          "characteristics": ["Đau liên tục nhẹ", "Chườm nóng đỡ", "Ăn no đau tăng"],
+          "interpretation": "Hàn thấp, Tỳ vị hư hàn",
+          "pain_location": "Thượng vị, quanh rốn"
+        },
+        {
+          "type": "Quặn thắt",
+          "characteristics": ["Đau từng cơn", "Co thắt", "Xoa bóp đỡ"],
+          "interpretation": "Khí trệ",
+          "pain_location": "Toàn bụng"
+        },
+        {
+          "type": "Đau rát",
+          "characteristics": ["Cảm giác nóng rát", "Ợ chua", "Ăn cay đau tăng"],
+          "interpretation": "Vị nhiệt",
+          "pain_location": "Thượng vị"
+        },
+        {
+          "type": "Đau như dao đâm",
+          "characteristics": ["Đau cố định", "Ấn đau tăng", "Ban đêm đau tăng"],
+          "interpretation": "Huyết ứ",
+          "pain_location": "Cố định một điểm"
+        }
+      ],
+      "tlcm:associatedPatterns": ["Hàn thấp", "Khí trệ", "Tỳ vị hư nhược", "Vị nhiệt", "Huyết ứ"],
+      "tlcm:relatedSymptoms": ["Buồn nôn", "Ợ hơi", "Đầy bụng", "Tiêu chảy", "Táo bón"],
+      "tlcm:examination": {
+        "tongue": ["Rêu trắng", "Rêu vàng", "Chất lưỡi tía"],
+        "pulse": ["Khẩn", "Huyền", "Tế", "Sác"]
+      }
+    },
+    
+    {
+      "@id": "tlcm:Constipation",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:DigestiveSymptom",
+      "rdfs:label": "Táo bón",
+      "skos:definition": "Tình trạng đại tiện khó khăn, phân khô cứng",
+      "tlcm:hasFuzzyVariable": "constipation",
+      "tlcm:severityLevels": [
+        {
+          "level": "Nhẹ",
+          "description": "Đi đại tiện 1 lần/2 ngày, phân hơi cứng",
+          "duration": "<1 tuần",
+          "score": 1
+        },
+        {
+          "level": "Vừa",
+          "description": "Đi đại tiện 1 lần/3 ngày, phân rắn, phải rặn",
+          "duration": "1-2 tuần",
+          "score": 2
+        },
+        {
+          "level": "Nặng",
+          "description": "Đi đại tiện <1 lần/3 ngày, phân cứng như phân dê, đau khi đi",
+          "duration": ">2 tuần",
+          "score": 3
+        },
+        {
+          "level": "Rất nặng",
+          "description": "Không tự đi đại tiện được, phải dùng thuốc hỗ trợ",
+          "duration": "Mãn tính",
+          "score": 4
+        }
+      ],
+      "tlcm:traditionalMedicineTypes": [
+        {
+          "type": "Nhiệt kết",
+          "symptoms": ["Phân khô", "Miệng khô", "Nước tiểu vàng", "Bụng đầy", "Hơi thở hôi"],
+          "tongue": "Chất đỏ, rêu vàng khô",
+          "pulse": "Hoạt sác",
+          "treatment": "Thanh nhiệt, nhuận tràng",
+          "formula": ["Đại thừa khí thang", "Ma nhân hoàn"]
+        },
+        {
+          "type": "Khí trệ",
+          "symptoms": ["Đại tiện khó", "Ợ hơi", "Ngực sườn đầy tức", "Tinh thần uất ức"],
+          "tongue": "Chất hồng, rêu mỏng",
+          "pulse": "Huyền",
+          "treatment": "Hành khí, đạo trệ",
+          "formula": ["Lục ma tử"]
+        },
+        {
+          "type": "Khí hư",
+          "symptoms": ["Muốn đi nhưng không đi được", "Ra sức rặn", "Mệt mỏi", "Đoản hơi", "Mặt nhợt"],
+          "tongue": "Chất nhợt, rêu trắng",
+          "pulse": "Hư",
+          "treatment": "Bổ khí, nhuận tràng",
+          "formula": ["Hoàng kỳ thang"]
+        },
+        {
+          "type": "Huyết hư",
+          "symptoms": ["Phân khô", "Hoa mắt", "Chóng mặt", "Tim hồi hộp", "Môi nhợt"],
+          "tongue": "Chất nhợt",
+          "pulse": "Tế sác",
+          "treatment": "Dưỡng huyết, nhuận táo",
+          "formula": ["Nhuận tràng hoàn"]
+        },
+        {
+          "type": "Dương hư",
+          "symptoms": ["Đại tiện khó", "Bụng lạnh đau", "Tay chân lạnh", "Tiểu trong dài"],
+          "tongue": "Chất nhợt, rêu trắng nhuận",
+          "pulse": "Trầm trì",
+          "treatment": "Ôn thông nhuận tràng",
+          "formula": ["Tế xuyên tiễn"]
+        }
+      ]
+    },
+    
+    {
+      "@id": "tlcm:Fatigue",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:GeneralSymptom",
+      "rdfs:label": "Mệt mỏi",
+      "skos:altLabel": ["Uể oải", "Suy nhược"],
+      "tlcm:hasFuzzyVariable": "fatigue",
+      "tlcm:characteristics": ["Uể oải", "Thiếu năng lượng", "Khó tập trung", "Buồn ngủ ban ngày"],
+      "tlcm:differentiationFactors": [
+        {
+          "factor": "Thời gian",
+          "options": ["Sáng nặng", "Chiều nặng", "Cả ngày"]
+        },
+        {
+          "factor": "Cải thiện",
+          "options": ["Nghỉ ngơi đỡ", "Nghỉ ngơi không đỡ", "Vận động nhẹ đỡ"]
+        }
+      ],
+      "tlcm:relatedPatterns": [
+        {
+          "pattern": "Khí hư",
+          "additionalSymptoms": ["Đoản hơi", "Tự hãn", "Tiếng nói nhỏ", "Dễ cảm mạo"],
+          "tongue": "Chất nhợt, rêu trắng",
+          "pulse": "Hư nhược",
+          "organs": ["Phế", "Tỳ"]
+        },
+        {
+          "pattern": "Huyết hư",
+          "additionalSymptoms": ["Hoa mắt", "Chóng mặt", "Sắc mặt nhợt", "Móng tay dễ gãy"],
+          "tongue": "Chất nhợt",
+          "pulse": "Tế",
+          "organs": ["Tâm", "Can"]
+        },
+        {
+          "pattern": "Dương hư",
+          "additionalSymptoms": ["Sợ lạnh", "Tay chân lạnh", "Lưng gối mỏi", "Tiểu đêm"],
+          "tongue": "Chất nhợt bệu",
+          "pulse": "Trầm tế",
+          "organs": ["Thận", "Tỳ"]
+        },
+        {
+          "pattern": "Âm hư",
+          "additionalSymptoms": ["Nóng trong", "Ra mồ hôi trộm", "Miệng khô họng khát", "Sốt về chiều"],
+          "tongue": "Chất đỏ ít rêu",
+          "pulse": "Tế sác",
+          "organs": ["Thận", "Phế"]
+        },
+        {
+          "pattern": "Đờm thấp",
+          "additionalSymptoms": ["Người nặng nề", "Đầy bụng", "Đờm nhiều", "Buồn ngủ"],
+          "tongue": "Chất bệu, rêu trắng nhờn",
+          "pulse": "Nhu hoạt",
+          "organs": ["Tỳ", "Phế"]
+        }
+      ]
+    },
+    
+    {
+      "@id": "tlcm:InternalHeat",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:GeneralSymptom",
+      "rdfs:label": "Nóng trong",
+      "skos:altLabel": ["Nhiệt nội sinh", "Hỏa vượng"],
+      "tlcm:hasFuzzyVariable": "internal_heat",
+      "tlcm:manifestations": [
+        "Cảm giác nóng trong người",
+        "Miệng khô họng khát",
+        "Lòng bàn tay bàn chân nóng",
+        "Mặt đỏ",
+        "Nước tiểu vàng",
+        "Táo bón",
+        "Mụn nhọt",
+        "Nhiệt miệng"
+      ],
+      "tlcm:patterns": [
+        {
+          "pattern": "Âm hư hỏa vượng",
+          "characteristics": ["Sốt về chiều", "Ra mồ hôi trộm", "Gò má đỏ", "Họng khô", "Lưỡi đỏ ít rêu"],
+          "pulse": "Tế sác",
+          "treatment": "Tư âm giáng hỏa",
+          "formula": ["Tri bá địa hoàng hoàn"]
+        },
+        {
+          "pattern": "Thực nhiệt",
+          "characteristics": ["Sốt cao", "Khát nước ưa uống lạnh", "Phiền táo", "Mặt đỏ", "Lưỡi đỏ rêu vàng"],
+          "pulse": "Sác hữu lực",
+          "treatment": "Thanh nhiệt tả hỏa",
+          "formula": ["Bạch hổ thang"]
+        },
+        {
+          "pattern": "Can hỏa vượng",
+          "characteristics": ["Cáu gắt", "Nhức đầu", "Mắt đỏ", "Miệng đắng", "Tai ù"],
+          "pulse": "Huyền sác",
+          "treatment": "Thanh can tả hỏa",
+          "formula": ["Long đởm tả can thang"]
+        },
+        {
+          "pattern": "Tâm hỏa vượng",
+          "characteristics": ["Mất ngủ", "Hồi hộp", "Miệng lở", "Tiểu vàng nóng"],
+          "pulse": "Sác",
+          "treatment": "Thanh tâm tả hỏa",
+          "formula": ["Đạo xích tán"]
+        }
+      ],
+      "tlcm:causes": [
+        "Ăn nhiều đồ cay nóng",
+        "Uống ít nước",
+        "Căng thẳng kéo dài",
+        "Thức khuya",
+        "Môi trường nóng"
+      ]
+    },
+    
+    {
+      "@id": "tlcm:BodyConstitution",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:label": "Thể chất",
+      "skos:definition": "Trạng thái cơ thể theo y học cổ truyền",
+      "tlcm:classificationSystem": "YHCT"
+    },
+    
+    {
+      "@id": "tlcm:YangDeficiency",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:BodyConstitution",
+      "rdfs:label": "Dương hư",
+      "skos:definition": "Thể chất thiếu dương khí, hàn tà thịnh",
+      "tlcm:keySymptoms": [
+        "Sợ lạnh",
+        "Tay chân lạnh",
+        "Đau bụng âm ỉ",
+        "Tiêu chảy phân nát",
+        "Tiểu trong dài",
+        "Lưng gối lạnh đau",
+        "Mệt mỏi",
+        "Sắc mặt trắng bệch"
+      ],
+      "tlcm:tongueFindings": "Chất lưỡi nhợt bệu, rêu trắng nhuận",
+      "tlcm:pulseFindings": "Trầm trì tế nhược",
+      "tlcm:dietaryRecommendation": "Ăn thức ăn tính ôn, nhiệt; tránh đồ sống lạnh",
+      "tlcm:recommendedDishProperties": ["ôn", "nhiệt"],
+      "tlcm:avoidFoods": ["đồ sống", "đồ lạnh", "đồ hàn"],
+      "tlcm:recommendedHerbs": ["Nhục quế", "Phụ tử", "Can khương", "Nhân sâm"],
+      "tlcm:lifestyleAdvice": "Giữ ấm, tập thể dục nhẹ, ngủ sớm",
+      "tlcm:commonDiseases": ["Viêm đại tràng mạn", "Hen suyễn", "Đau lưng", "Vô sinh"]
+    },
+    
+    {
+      "@id": "tlcm:YinDeficiency",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:BodyConstitution",
+      "rdfs:label": "Âm hư",
+      "skos:definition": "Thể chất thiếu âm dịch, hỏa vượng",
+      "tlcm:keySymptoms": [
+        "Nóng trong",
+        "Ra mồ hôi trộm",
+        "Miệng khô họng khát",
+        "Lòng bàn tay chân nóng",
+        "Táo bón",
+        "Nước tiểu vàng sẻn",
+        "Sốt về chiều",
+        "Gò má đỏ"
+      ],
+      "tlcm:tongueFindings": "Chất lưỡi đỏ ít rêu hoặc rêu nứt nẻ",
+      "tlcm:pulseFindings": "Tế sác",
+      "tlcm:dietaryRecommendation": "Ăn thức ăn tính mát, bổ âm; tránh đồ cay nóng",
+      "tlcm:recommendedDishProperties": ["hàn", "lương", "mát"],
+      "tlcm:avoidFoods": ["đồ cay", "đồ nóng", "rượu bia"],
+      "tlcm:recommendedHerbs": ["Sinh địa", "Mạch môn", "Thiên môn", "Sa sâm"],
+      "tlcm:lifestyleAdvice": "Tránh thức khuya, giảm căng thẳng, uống đủ nước",
+      "tlcm:commonDiseases": ["Tiểu đường", "Cao huyết áp", "Mất ngủ", "Viêm họng mạn"]
+    },
+    
+    {
+      "@id": "tlcm:QiDeficiency",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:BodyConstitution",
+      "rdfs:label": "Khí hư",
+      "skos:definition": "Thể chất thiếu khí, chức năng cơ thể suy giảm",
+      "tlcm:keySymptoms": [
+        "Mệt mỏi",
+        "Đoản hơi",
+        "Tự hãn",
+        "Ăn kém",
+        "Đại tiện lỏng",
+        "Tiếng nói nhỏ",
+        "Dễ cảm mạo",
+        "Sắc mặt trắng"
+      ],
+      "tlcm:tongueFindings": "Chất lưỡi nhợt, rêu trắng",
+      "tlcm:pulseFindings": "Hư nhược",
+      "tlcm:dietaryRecommendation": "Ăn thức ăn bổ khí, dễ tiêu",
+      "tlcm:recommendedDishProperties": ["bình", "ôn"],
+      "tlcm:avoidFoods": ["đồ sống lạnh", "đồ khó tiêu"],
+      "tlcm:recommendedHerbs": ["Hoàng kỳ", "Đảng sâm", "Bạch truật", "Cam thảo"],
+      "tlcm:lifestyleAdvice": "Tập thể dục vừa phải, nghỉ ngơi đầy đủ",
+      "tlcm:commonDiseases": ["Suy nhược cơ thể", "Sa dạ dày", "Suyễn", "Tim mạch"]
+    },
+    
+    {
+      "@id": "tlcm:DampHeat",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:BodyConstitution",
+      "rdfs:label": "Thấp nhiệt",
+      "skos:definition": "Thể chất thấp nhiệt uẩn kết",
+      "tlcm:keySymptoms": [
+        "Đau bụng",
+        "Tiêu chảy nóng rát hậu môn",
+        "Nước tiểu vàng đục",
+        "Miệng đắng",
+        "Cơ thể nặng nề",
+        "Mụn nhọt",
+        "Vàng da",
+        "Ngứa da"
+      ],
+      "tlcm:tongueFindings": "Chất lưỡi đỏ, rêu vàng nhờn",
+      "tlcm:pulseFindings": "Nhu sác",
+      "tlcm:dietaryRecommendation": "Ăn thức ăn thanh nhiệt lợi thấp",
+      "tlcm:recommendedDishProperties": ["hàn", "lương"],
+      "tlcm:avoidFoods": ["đồ ngọt", "đồ béo", "đồ chiên rán", "rượu bia"],
+      "tlcm:recommendedHerbs": ["Hoàng liên", "Hoàng bá", "Hoạt thạch", "Xa tiền tử"],
+      "tlcm:lifestyleAdvice": "Tránh ẩm thấp, giữ khô ráo, vệ sinh sạch sẽ",
+      "tlcm:commonDiseases": ["Viêm gan", "Viêm túi mật", "Viêm đường tiết niệu", "Viêm da"]
+    },
+    
+    {
+      "@id": "tlcm:BloodStasis",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:BodyConstitution",
+      "rdfs:label": "Huyết ứ",
+      "skos:definition": "Thể chất huyết ứ trệ",
+      "tlcm:keySymptoms": [
+        "Đau cố định như kim châm",
+        "Ban đêm đau tăng",
+        "Da xanh tím",
+        "Môi tím",
+        "Lưỡi có điểm ứ huyết",
+        "Kinh nguyệt có máu cục",
+        "Đau đầu cố định"
+      ],
+      "tlcm:tongueFindings": "Chất lưỡi tía hoặc có điểm ứ huyết",
+      "tlcm:pulseFindings": "Sáp hoặc huyền sáp",
+      "tlcm:dietaryRecommendation": "Ăn thức ăn hoạt huyết hóa ứ",
+      "tlcm:recommendedDishProperties": ["ôn", "hoạt huyết"],
+      "tlcm:avoidFoods": ["đồ lạnh", "đồ sống"],
+      "tlcm:recommendedHerbs": ["Đương quy", "Xích thược", "Đào nhân", "Hồng hoa"],
+      "tlcm:lifestyleAdvice": "Vận động nhẹ, tránh ngồi lâu",
+      "tlcm:commonDiseases": ["Đau thần kinh tọa", "Kinh nguyệt không đều", "Chấn thương", "U bướu"]
+    },
+    
+    {
+      "@id": "tlcm:QiStagnation",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:subClassOf": "tlcm:BodyConstitution",
+      "rdfs:label": "Khí trệ",
+      "skos:definition": "Thể chất khí cơ uất trệ",
+      "tlcm:keySymptoms": [
+        "Đau di chuyển",
+        "Trướng bụng",
+        "Ợ hơi",
+        "Thở dài",
+        "Tinh thần uất ức",
+        "Ngực sườn đầy tức",
+        "Nuốt nghẹn"
+      ],
+      "tlcm:tongueFindings": "Chất lưỡi hồng, rêu mỏng",
+      "tlcm:pulseFindings": "Huyền",
+      "tlcm:dietaryRecommendation": "Ăn thức ăn hành khí",
+      "tlcm:recommendedDishProperties": ["hành khí", "ôn"],
+      "tlcm:avoidFoods": ["đồ khó tiêu", "đồ sống lạnh"],
+      "tlcm:recommendedHerbs": ["Hương phụ", "Chỉ xác", "Thanh bì", "Sài hồ"],
+      "tlcm:lifestyleAdvice": "Giảm căng thẳng, tập thở sâu, vận động",
+      "tlcm:commonDiseases": ["Rối loạn tiêu hóa chức năng", "Trầm cảm", "Đau dây thần kinh liên sườn"]
+    },
+    
+    {
+      "@id": "tlcm:SymptomPatternMapping",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:label": "Ánh xạ triệu chứng - thể chất"
+    },
+    
+    {
+      "@id": "tlcm:mapsToPattern",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "tlcm:Symptom",
+      "rdfs:range": "tlcm:BodyConstitution",
+      "rdfs:label": "ánh xạ đến thể chất",
+      "skos:definition": "Quan hệ giữa triệu chứng và thể chất"
+    },
+    
+    {
+      "@id": "tlcm:hasSeverity",
+      "@type": "owl:DatatypeProperty",
+      "rdfs:domain": "tlcm:Symptom",
+      "rdfs:range": "xsd:float",
+      "rdfs:label": "có mức độ nặng"
+    },
+    
+    {
+      "@id": "tlcm:hasTreatmentPrinciple",
+      "@type": "owl:ObjectProperty",
+      "rdfs:domain": "tlcm:BodyConstitution",
+      "rdfs:range": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "có nguyên tắc điều trị"
+    },
+    
+    {
+      "@id": "tlcm:TreatmentPrinciple",
+      "@type": ["owl:Class", "skos:Concept"],
+      "rdfs:label": "Nguyên tắc điều trị",
+      "skos:definition": "Nguyên tắc chữa bệnh theo y học cổ truyền"
+    },
+    
+    {
+      "@id": "tlcm:WarmingMiddle",
+      "@type": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "Ôn trung",
+      "skos:definition": "Làm ấm trung tiêu, tán hàn",
+      "tlcm:indications": ["Dương hư", "Hàn thấp", "Tỳ vị hư hàn"],
+      "tlcm:recommendedFoodProperties": ["ôn", "nhiệt"],
+      "tlcm:commonHerbs": ["Can khương", "Nhục quế", "Ngô thù du", "Cao lương khương"],
+      "tlcm:commonAcupoints": ["Trung quản", "Túc tam lý", "Quan nguyên"],
+      "tlcm:contraindications": ["Nhiệt chứng", "Âm hư"]
+    },
+    
+    {
+      "@id": "tlcm:ClearingHeat",
+      "@type": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "Thanh nhiệt",
+      "skos:definition": "Làm mát, giải nhiệt trong cơ thể",
+      "tlcm:indications": ["Nhiệt chứng", "Âm hư hỏa vượng", "Thấp nhiệt"],
+      "tlcm:recommendedFoodProperties": ["hàn", "lương", "mát"],
+      "tlcm:commonHerbs": ["Sinh địa", "Huyền sâm", "Tri mẫu", "Hoàng liên"],
+      "tlcm:commonAcupoints": ["Khúc trì", "Hợp cốc", "Đại chùy"],
+      "tlcm:contraindications": ["Hàn chứng", "Dương hư"]
+    },
+    
+    {
+      "@id": "tlcm:StrengtheningSpleen",
+      "@type": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "Kiện tỳ",
+      "skos:definition": "Bổ tỳ vị, tăng cường tiêu hóa",
+      "tlcm:indications": ["Tỳ vị hư nhược", "Khí hư", "Thấp trệ"],
+      "tlcm:recommendedFoodProperties": ["bình", "ôn"],
+      "tlcm:commonHerbs": ["Bạch truật", "Phục linh", "Đảng sâm", "Hoàng kỳ"],
+      "tlcm:commonAcupoints": ["Túc tam lý", "Tỳ du", "Vị du"],
+      "tlcm:contraindications": ["Thực tích"]
+    },
+    
+    {
+      "@id": "tlcm:SupplementingQiBlood",
+      "@type": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "Bổ khí huyết",
+      "skos:definition": "Bổ sung khí và huyết",
+      "tlcm:indications": ["Khí huyết hư", "Thiếu máu", "Suy nhược"],
+      "tlcm:recommendedFoodProperties": ["bình", "ôn", "nhiệt"],
+      "tlcm:commonHerbs": ["Hoàng kỳ", "Đương quy", "Thục địa", "Bạch thược"],
+      "tlcm:commonAcupoints": ["Túc tam lý", "Huyết hải", "Cách du"],
+      "tlcm:contraindications": ["Thực chứng", "Nhiệt thịnh"]
+    },
+    
+    {
+      "@id": "tlcm:MoisteningIntestines",
+      "@type": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "Nhuận tràng",
+      "skos:definition": "Làm ẩm ruột, trị táo bón",
+      "tlcm:indications": ["Táo bón", "Tràng táo", "Âm huyết hư"],
+      "tlcm:recommendedFoodProperties": ["nhuận", "mát"],
+      "tlcm:commonHerbs": ["Hạnh nhân", "Đào nhân", "Ma nhân", "Đương quy"],
+      "tlcm:commonAcupoints": ["Thiên xu", "Đại trường du", "Chi câu"],
+      "tlcm:contraindications": ["Tiêu chảy", "Thấp trệ"]
+    },
+    
+    {
+      "@id": "tlcm:EliminatingDampness",
+      "@type": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "Trừ thấp",
+      "skos:definition": "Lợi niệu trừ thấp",
+      "tlcm:indications": ["Thấp trệ", "Phù thũng", "Tiểu ít"],
+      "tlcm:recommendedFoodProperties": ["khô", "táo"],
+      "tlcm:commonHerbs": ["Phục linh", "Trư linh", "Trạch tả", "Ý dĩ"],
+      "tlcm:commonAcupoints": ["Âm lăng tuyền", "Tam âm giao", "Thủy phân"],
+      "tlcm:contraindications": ["Âm hư", "Tân dịch thiếu"]
+    },
+    
+    {
+      "@id": "tlcm:RegulatingQi",
+      "@type": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "Hành khí",
+      "skos:definition": "Lưu thông khí, giảm đau",
+      "tlcm:indications": ["Khí trệ", "Đau", "Trướng"],
+      "tlcm:recommendedFoodProperties": ["hành khí", "bình"],
+      "tlcm:commonHerbs": ["Hương phụ", "Chỉ xác", "Mộc hương", "Trần bì"],
+      "tlcm:commonAcupoints": ["Thái xung", "Hành gian", "Cách du"],
+      "tlcm:contraindications": ["Khí hư"]
+    },
+    
+    {
+      "@id": "tlcm:NourishingYin",
+      "@type": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "Bổ âm",
+      "skos:definition": "Tư âm dưỡng huyết",
+      "tlcm:indications": ["Âm hư", "Hỏa vượng", "Nóng trong"],
+      "tlcm:recommendedFoodProperties": ["mát", "lương"],
+      "tlcm:commonHerbs": ["Sinh địa", "Mạch môn", "Thiên môn", "Sa sâm"],
+      "tlcm:commonAcupoints": ["Thái khê", "Chiếu hải", "Tam âm giao"],
+      "tlcm:contraindications": ["Thấp trệ", "Tỳ hư"]
+    },
+    
+    {
+      "@id": "tlcm:WarmingYang",
+      "@type": "tlcm:TreatmentPrinciple",
+      "rdfs:label": "Bổ dương",
+      "skos:definition": "Ôn bổ dương khí",
+      "tlcm:indications": ["Dương hư", "Hàn thịnh"],
+      "tlcm:recommendedFoodProperties": ["nhiệt", "ôn"],
+      "tlcm:commonHerbs": ["Nhục quế", "Phụ tử", "Ba kích", "Nhân sâm"],
+      "tlcm:commonAcupoints": ["Quan nguyên", "Mệnh môn", "Thận du"],
+      "tlcm:contraindications": ["Nhiệt chứng", "Âm hư"]
+    },
+    
+    {
+      "@id": "tlcm:Instances",
+      "@type": "owl:Class",
+      "rdfs:label": "Thể hiện",
+      "skos:definition": "Các trường hợp cụ thể"
+    },
+    
+    {
+      "@id": "tlcm:PatientCase1",
+      "@type": "tlcm:YangDeficiency",
+      "rdfs:label": "Bệnh nhân 1: Dương hư thể hàn",
+      "tlcm:patientAge": 65,
+      "tlcm:patientGender": "Nữ",
+      "tlcm:hasSymptom": [
+        {
+          "symptom": "tlcm:ColdSensation",
+          "severity": 4.5,
+          "description": "Rất sợ lạnh, tay chân lạnh quanh năm, mặc nhiều áo"
+        },
+        {
+          "symptom": "tlcm:AbdominalPain",
+          "severity": 3.8,
+          "description": "Đau bụng âm ỉ quanh rốn, chườm nóng đỡ"
+        },
+        {
+          "symptom": "tlcm:Fatigue",
+          "severity": 4.0,
+          "description": "Mệt mỏi, uể oải, không muốn vận động"
+        },
+        {
+          "symptom": "tlcm:Constipation",
+          "severity": 2.5,
+          "description": "Táo bón nhẹ, phân không khô"
+        }
+      ],
+      "tlcm:tongueDescription": "Chất lưỡi nhợt bệu, rêu trắng nhuận",
+      "tlcm:pulseDescription": "Trầm trì tế",
+      "tlcm:hasTreatmentPrinciple": ["tlcm:WarmingMiddle", "tlcm:StrengtheningSpleen", "tlcm:WarmingYang"],
+      "tlcm:recommendedDishes": ["Cháo gà gừng", "Thịt bò hầm thuốc bắc", "Trà gừng mật ong"],
+      "tlcm:avoidDishes": ["Canh mồng tơi cua", "Nước đậu đen"],
+      "tlcm:outcome": "Cải thiện sau 2 tuần",
+      "tlcm:notes": "Bệnh nhân cần tiếp tục giữ ấm và ăn uống điều độ"
+    },
+    
+    {
+      "@id": "tlcm:PatientCase2",
+      "@type": "tlcm:YinDeficiency",
+      "rdfs:label": "Bệnh nhân 2: Âm hư hỏa vượng",
+      "tlcm:patientAge": 42,
+      "tlcm:patientGender": "Nam",
+      "tlcm:hasSymptom": [
+        {
+          "symptom": "tlcm:InternalHeat",
+          "severity": 4.2,
+          "description": "Nóng trong người, lòng bàn tay chân nóng, mặt đỏ"
+        },
+        {
+          "symptom": "tlcm:Constipation",
+          "severity": 3.5,
+          "description": "Táo bón, phân khô cứng, 3-4 ngày mới đi một lần"
+        },
+        {
+          "symptom": "tlcm:Fatigue",
+          "severity": 2.8,
+          "description": "Hơi mệt, nhất là buổi chiều"
+        },
+        {
+          "symptom": "tlcm:SleepDisorder",
+          "severity": 3.0,
+          "description": "Khó ngủ, ngủ không sâu giấc"
+        }
+      ],
+      "tlcm:tongueDescription": "Chất lưỡi đỏ, ít rêu, có vết nứt",
+      "tlcm:pulseDescription": "Tế sác",
+      "tlcm:hasTreatmentPrinciple": ["tlcm:NourishingYin", "tlcm:ClearingHeat", "tlcm:MoisteningIntestines"],
+      "tlcm:recommendedDishes": ["Canh mồng tơi cua", "Nước đậu đen rang", "Chè đậu xanh"],
+      "tlcm:avoidDishes": ["Thịt bò hầm thuốc bắc", "Trà gừng"],
+      "tlcm:outcome": "Cải thiện sau 1 tuần",
+      "tlcm:notes": "Bệnh nhân cần uống đủ nước và tránh thức khuya"
+    },
+    
+    {
+      "@id": "tlcm:PatientCase3",
+      "@type": "tlcm:DampHeat",
+      "rdfs:label": "Bệnh nhân 3: Thấp nhiệt trường vị",
+      "tlcm:patientAge": 38,
+      "tlcm:patientGender": "Nữ",
+      "tlcm:hasSymptom": [
+        {
+          "symptom": "tlcm:AbdominalPain",
+          "severity": 4.0,
+          "description": "Đau bụng từng cơn, tiêu chảy nóng rát"
+        },
+        {
+          "symptom": "tlcm:InternalHeat",
+          "severity": 3.5,
+          "description": "Nóng trong, miệng đắng"
+        },
+        {
+          "symptom": "tlcm:Fatigue",
+          "severity": 3.0,
+          "description": "Mệt mỏi, người nặng nề"
+        },
+        {
+          "symptom": "tlcm:UrinarySymptoms",
+          "severity": 3.2,
+          "description": "Tiểu vàng, nước tiểu đục"
+        }
+      ],
+      "tlcm:tongueDescription": "Chất lưỡi đỏ, rêu vàng nhờn",
+      "tlcm:pulseDescription": "Nhu sác",
+      "tlcm:hasTreatmentPrinciple": ["tlcm:ClearingHeat", "tlcm:EliminatingDampness", "tlcm:StrengtheningSpleen"],
+      "tlcm:recommendedDishes": ["Gỏi cuốn tôm thịt", "Súp miso", "Rau muống xào tỏi"],
+      "tlcm:avoidDishes": ["Thịt kho tàu", "Thịt bò hầm"],
+      "tlcm:outcome": "Cải thiện sau 5 ngày",
+      "tlcm:notes": "Tránh đồ ngọt và dầu mỡ"
+    }
+  ]
+}

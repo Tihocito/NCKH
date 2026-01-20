@@ -1,0 +1,278 @@
+{
+  "drug_interactions": [
+    {
+      "drug": "warfarin",
+      "contraindicated_foods": ["rau cải", "rau bina", "bông cải xanh", "cải xoăn", "rau diếp", "cải thìa"],
+      "reason": "Giàu Vitamin K, làm giảm hiệu quả chống đông máu",
+      "severity": "high",
+      "interaction_type": "decreases_effect",
+      "recommended_action": "Duy trì lượng tiêu thụ ổn định, không thay đổi đột ngột",
+      "alternatives": ["rau muống", "mồng tơi", "rau ngót"]
+    },
+    {
+      "drug": "MAOIs",
+      "contraindicated_foods": ["phô mai lâu năm", "thịt xông khói", "rượu vang đỏ", "cá hun khói", "xúc xích lên men", "đậu nành lên men"],
+      "reason": "Giàu tyramine, gây tăng huyết áp đột ngột (crisis hypertensive)",
+      "severity": "critical",
+      "interaction_type": "increases_toxicity",
+      "recommended_action": "Tuyệt đối tránh, có thể gây đột quỵ",
+      "alternatives": ["phô mai tươi", "thịt tươi", "sữa chua"]
+    },
+    {
+      "drug": "digoxin",
+      "contraindicated_foods": ["cam thảo", "nhân sâm", "chuối", "khoai tây", "cà chua"],
+      "reason": "Ảnh hưởng đến điện giải kali, tăng nguy cơ ngộ độc digoxin",
+      "severity": "medium",
+      "interaction_type": "increases_toxicity",
+      "recommended_action": "Hạn chế, theo dõi triệu chứng ngộ độc",
+      "alternatives": ["táo", "lê", "bí đao"]
+    },
+    {
+      "drug": "statin",
+      "contraindicated_foods": ["bưởi", "nước ép bưởi", "cam bergamot"],
+      "reason": "Ức chế enzyme CYP3A4, tăng nồng độ thuốc trong máu",
+      "severity": "medium",
+      "interaction_type": "increases_toxicity",
+      "recommended_action": "Không uống cùng hoặc trong vòng 4 giờ",
+      "alternatives": ["cam", "quýt", "táo"]
+    },
+    {
+      "drug": "levothyroxine",
+      "contraindicated_foods": ["đậu nành", "hạt lanh", "thực phẩm giàu chất xơ", "sữa", "cà phê"],
+      "reason": "Giảm hấp thu thuốc",
+      "severity": "medium",
+      "interaction_type": "decreases_effect",
+      "recommended_action": "Uống thuốc khi đói, cách bữa ăn ít nhất 30 phút",
+      "alternatives": ["uống với nước lọc khi đói"]
+    },
+    {
+      "drug": "tetracycline",
+      "contraindicated_foods": ["sữa", "sản phẩm từ sữa", "thực phẩm giàu canxi", "thực phẩm giàu sắt"],
+      "reason": "Tạo phức hợp khó hấp thu",
+      "severity": "medium",
+      "interaction_type": "decreases_effect",
+      "recommended_action": "Uống cách xa bữa ăn 2 giờ",
+      "alternatives": ["uống với nước lọc"]
+    }
+  ],
+  
+  "disease_restrictions": [
+    {
+      "disease": "gout",
+      "restricted_foods": ["hải sản", "thịt đỏ", "nội tạng động vật", "rượu bia", "đậu Hà Lan", "măng tây", "nấm"],
+      "reason": "Giàu purine, làm tăng acid uric máu",
+      "severity": "high",
+      "restriction_level": "strict",
+      "allowed_foods": ["rau xanh", "trái cây", "ngũ cốc nguyên hạt", "sữa ít béo"],
+      "recommended_limit": "<150mg purine/ngày"
+    },
+    {
+      "disease": "cao huyết áp",
+      "restricted_foods": ["muối", "thức ăn mặn", "mỡ động vật", "đồ chiên rán", "rượu", "cà phê đặc"],
+      "reason": "Tăng giữ nước và cholesterol",
+      "severity": "medium",
+      "restriction_level": "moderate",
+      "allowed_foods": ["rau củ quả", "ngũ cốc", "cá", "thịt nạc"],
+      "recommended_limit": "<5g muối/ngày"
+    },
+    {
+      "disease": "tiểu đường",
+      "restricted_foods": ["đường trắng", "bánh kẹo ngọt", "trái cây quá ngọt", "nước ngọt", "tinh bột tinh chế"],
+      "reason": "Làm tăng đường huyết nhanh",
+      "severity": "high",
+      "restriction_level": "strict",
+      "allowed_foods": ["rau xanh", "trái cây ít ngọt", "ngũ cốc nguyên hạt", "đạm nạc"],
+      "recommended_limit": "Theo chỉ số đường huyết (GI) thấp"
+    },
+    {
+      "disease": "suy thận",
+      "restricted_foods": ["thực phẩm giàu kali", "thực phẩm giàu phospho", "muối", "đạm động vật"],
+      "reason": "Giảm tải cho thận",
+      "severity": "high",
+      "restriction_level": "strict",
+      "allowed_foods": ["bí đao", "bầu", "bí ngô", "rau cải"],
+      "recommended_limit": "Kali: <2000mg/ngày, Đạm: 0.6-0.8g/kg/ngày"
+    },
+    {
+      "disease": "viêm dạ dày",
+      "restricted_foods": ["đồ cay", "đồ chua", "cà phê", "rượu", "thức ăn nhiều dầu mỡ", "thức ăn cứng"],
+      "reason": "Kích thích niêm mạc dạ dày",
+      "severity": "medium",
+      "restriction_level": "moderate",
+      "allowed_foods": ["cháo", "súp", "thức ăn mềm", "sữa chua"],
+      "recommended_limit": "Ăn nhạt, mềm, ấm"
+    },
+    {
+      "disease": "gan nhiễm mỡ",
+      "restricted_foods": ["rượu bia", "thức ăn nhanh", "đồ chiên rán", "nội tạng", "đường tinh luyện"],
+      "reason": "Tăng gánh nặng cho gan",
+      "severity": "medium",
+      "restriction_level": "moderate",
+      "allowed_foods": ["rau xanh", "trái cây", "cá", "đậu"],
+      "recommended_limit": "Chất béo <30% tổng calo"
+    }
+  ],
+  
+  "allergy_warnings": [
+    {
+      "allergen": "hải sản",
+      "common_foods": ["tôm", "cua", "mực", "cá biển", "sò", "ốc", "hến", "nghêu"],
+      "warning": "Có thể gây dị ứng nặng, sốc phản vệ ở người nhạy cảm",
+      "severity": "critical",
+      "common_names": ["seafood", "shellfish", "fish"],
+      "cross_reactivity": ["bụi nhà", "gián"],
+      "emergency_action": "Tiêm epinephrine ngay nếu có triệu chứng nặng"
+    },
+    {
+      "allergen": "đậu phộng",
+      "common_foods": ["lạc", "dầu lạc", "bơ đậu phộng", "kẹo lạc", "bánh có lạc"],
+      "warning": "Dị ứng đậu phộng có thể gây sốc phản vệ nhanh và nguy hiểm",
+      "severity": "critical",
+      "common_names": ["peanut", "groundnut"],
+      "cross_reactivity": ["đậu nành", "đậu xanh"],
+      "emergency_action": "Tránh tuyệt đối, mang epinephrine bên người"
+    },
+    {
+      "allergen": "sữa",
+      "common_foods": ["sữa bò", "phô mai", "sữa chua", "bơ", "kem", "bánh có sữa"],
+      "warning": "Dị ứng protein sữa, phổ biến ở trẻ em",
+      "severity": "high",
+      "common_names": ["milk", "dairy"],
+      "cross_reactivity": ["thịt bò"],
+      "emergency_action": "Dùng sữa công thức thủy phân nếu là trẻ em"
+    },
+    {
+      "allergen": "trứng",
+      "common_foods": ["trứng gà", "trứng vịt", "bánh có trứng", "mayonnaise", "kem"],
+      "warning": "Dị ứng protein trong lòng trắng trứng",
+      "severity": "medium",
+      "common_names": ["egg"],
+      "cross_reactivity": ["thịt gà"],
+      "emergency_action": "Có thể thử lòng đỏ trứng (ít gây dị ứng hơn)"
+    },
+    {
+      "allergen": "lúa mì",
+      "common_foods": ["bánh mì", "mì sợi", "bánh ngọt", "bột mì", "bánh quy"],
+      "warning": "Dị ứng gluten hoặc protein trong lúa mì",
+      "severity": "medium",
+      "common_names": ["wheat", "gluten"],
+      "cross_reactivity": ["lúa mạch", "lúa mạch đen"],
+      "emergency_action": "Dùng thực phẩm không gluten"
+    },
+    {
+      "allergen": "đậu nành",
+      "common_foods": ["đậu phụ", "sữa đậu nành", "tương", "chao", "nước tương"],
+      "warning": "Dị ứng protein đậu nành",
+      "severity": "medium",
+      "common_names": ["soy", "soya"],
+      "cross_reactivity": ["đậu phộng"],
+      "emergency_action": "Tránh các sản phẩm từ đậu nành"
+    },
+    {
+      "allergen": "thịt gà",
+      "common_foods": ["gà", "thịt gà", "da gà", "nước luộc gà", "mỡ gà", "chân gà", "khô gà"],
+      "warning": "Dị ứng protein thịt gà, có thể gây ngứa, nổi mề đay hoặc khó thở",
+      "severity": "high",
+      "common_names": ["chicken", "poultry", "gà"],
+      "cross_reactivity": ["trứng", "thịt vịt", "ngan", "ngỗng"],
+      "emergency_action": "Tránh tiêu thụ các sản phẩm từ gia cầm"
+    }
+  ],
+  
+  "food_combinations": [
+    {
+      "food1": "hải sản",
+      "food2": "vitamin C nhiều",
+      "reason": "Có thể tạo thành asen hữu cơ độc hại",
+      "severity": "low",
+      "time_gap": "2 giờ",
+      "examples": ["tôm + nước cam", "cua + chanh"]
+    },
+    {
+      "food1": "sữa",
+      "food2": "thuốc kháng sinh",
+      "reason": "Giảm hấp thu thuốc",
+      "severity": "medium",
+      "time_gap": "2 giờ",
+      "examples": ["sữa + tetracycline"]
+    },
+    {
+      "food1": "cà chua",
+      "food2": "khoai lang",
+      "reason": "Có thể gây khó tiêu, đầy bụng",
+      "severity": "low",
+      "time_gap": "1 giờ",
+      "examples": ["canh cà chua + khoai lang luộc"]
+    },
+    {
+      "food1": "trứng",
+      "food2": "sữa đậu nành",
+      "reason": "Trypsin trong đậu nành ảnh hưởng protein trứng",
+      "severity": "low",
+      "time_gap": "30 phút",
+      "examples": ["trứng ốp la + sữa đậu nành"]
+    }
+  ],
+  
+  "seasonal_restrictions": {
+    "hè": {
+      "avoid": ["thịt dê", "thịt chó", "rượu mạnh", "đồ nướng"],
+      "reason": "Dễ gây nóng trong, nhiệt miệng",
+      "recommended": ["rau mồng tơi", "rau muống", "dưa hấu", "nước đậu đen"]
+    },
+    "đông": {
+      "avoid": ["đồ uống lạnh", "kem", "đồ sống"],
+      "reason": "Dễ gây lạnh bụng, đau bụng",
+      "recommended": ["thịt bò hầm", "cháo gà", "trà gừng", "canh nấm"]
+    },
+    "mùa mưa": {
+      "avoid": ["đồ sống", "rau sống", "nước đá"],
+      "reason": "Dễ nhiễm khuẩn, thấp khí",
+      "recommended": ["đồ nấu chín", "canh nóng", "trà thảo mộc"]
+    }
+  },
+  
+  "pregnancy_restrictions": [
+    {
+      "food": "rau răm",
+      "reason": "Có thể gây co bóp tử cung",
+      "trimester": "all",
+      "restriction": "avoid"
+    },
+    {
+      "food": "đu đủ xanh",
+      "reason": "Chứa papain có thể gây sảy thai",
+      "trimester": "first",
+      "restriction": "avoid"
+    },
+    {
+      "food": "cá biển lớn",
+      "reason": "Có thể chứa thủy ngân cao",
+      "trimester": "all",
+      "restriction": "limit",
+      "limit": "<170g/tuần"
+    },
+    {
+      "food": "caffeine",
+      "reason": "Ảnh hưởng đến thai nhi",
+      "trimester": "all",
+      "restriction": "limit",
+      "limit": "<200mg/ngày"
+    }
+  ],
+  
+  "age_restrictions": {
+    "infant_under_1": {
+      "avoid": ["mật ong", "muối", "đường", "sữa bò tươi", "hải sản"],
+      "reason": "Hệ tiêu hóa và miễn dịch chưa hoàn thiện"
+    },
+    "children_1_3": {
+      "avoid": ["thức ăn cứng", "hạt nhỏ", "kẹo dẻo", "đồ uống có gas"],
+      "reason": "Nguy cơ hóc, nghẹn"
+    },
+    "elderly_over_70": {
+      "avoid": ["thức ăn cứng", "đồ chiên rán", "thức ăn nhiều muối"],
+      "reason": "Răng yếu, tiêu hóa kém, huyết áp cao"
+    }
+  }
+}
